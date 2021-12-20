@@ -13,8 +13,9 @@ final-project-level3-nlp-18 created by GitHub Classroom
 ## Practice
   1. git clone https://github.com/pytorch/fairseq.git
   2. cd fairseq
-  3. Input bash files 
-  4. Put JIT folder 
+  3. pip install --editable ./  
+  4. Input bash files 
+  5. Put JIT folder 
    <pre><code>
    #BPE segments for training
     python bpe_segment.py --jit jit --vocab_size 4000
