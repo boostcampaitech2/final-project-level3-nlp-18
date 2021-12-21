@@ -6,18 +6,31 @@ def prepro(src, tgt, vocab_size):
     trainpref = f"{dir}/bpe/train"
     destdir = f"{dir}/{src}-{tgt}-bin"
 
-    prepro = f"fairseq-preprocess \
-                  --source-lang {src} \
-                  --target-lang {tgt} \
-                  --trainpref {trainpref} \
-                  --validpref {dir}/bpe/dev \
-                  --testpref {dir}/bpe/test \
-                  --srcdict {dir}/bpe/bpe.dict \
-                  --tgtdict {dir}/bpe/bpe.dict \
-                  --workers 8 \
-                  --destdir {destdir}"
+    if src != 'external' :
+        prepro = f"fairseq-preprocess \
+                    --source-lang {src} \
+                    --target-lang {tgt} \
+                    --trainpref {trainpref} \
+                    --validpref {dir}/bpe/dev \
+                    --testpref {dir}/bpe/test \
+                    --srcdict {dir}/bpe/bpe.dict \
+                    --tgtdict {dir}/bpe/bpe.dict \
+                    --workers 8 \
+                    --destdir {destdir}"
+    else : 
+        prepro = f"fairseq-preprocess \
+                    --source-lang external \
+                    --target-lang {tgt} \
+                    --trainpref {trainpref} \
+                    --validpref {dir}/bpe/dev \
+                    --testpref {dir}/bpe/test \
+                    --srcdict {dir}/bpe/bpe.dict \
+                    --tgtdict {dir}/bpe/bpe.dict \
+                    --workers 8 \
+                    --destdir {destdir}"
 
     os.system(prepro)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -30,3 +43,4 @@ if __name__ == "__main__":
     hp = parser.parse_args()
 
     prepro(hp.src, hp.tgt, hp.vocab_size)
+
