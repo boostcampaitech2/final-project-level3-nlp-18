@@ -32,7 +32,7 @@ final-project-level3-nlp-18 created by GitHub Classroom
    #Interactive mode (User가 input을 넣으면 output이 나오는 화면)
     bash interactive.sh
     
-   #Generate (Src 문장을 넣으면 모델을 돌려 Tgt 문장에 대한 해석된 문장을 만들어준다)
+   #Generate (Src 문장을 넣으면 모델을 돌려 Tgt 문장에 대한 해석된 문장을 만들어준다)(--result 디렉토리란을 지운다면 텍스트파일은 만들어지지 않지만 score가 계산이 된다)
     bash generate_koje.sh
     bash generate_jeko.sh
     
