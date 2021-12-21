@@ -6,8 +6,7 @@ final-project-level3-nlp-18 created by GitHub Classroom
 
 ## Requirements 
   python >= 3.6  
-  NumPy >= 1.11.1  
-  Fairseq   
+  NumPy >= 1.11.1    
   Sentencepiece   
   tqdm   
 ## Practice
