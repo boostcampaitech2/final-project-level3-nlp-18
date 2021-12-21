@@ -11,11 +11,13 @@ final-project-level3-nlp-18 created by GitHub Classroom
   Sentencepiece   
   tqdm   
 ## Practice
-  1. git clone https://github.com/pytorch/fairseq.git
-  2. cd fairseq
-  3. pip install --editable ./  
-  4. Input files 
-  5. Make JIT folder and input your data
+  <pre><code>
+  git clone https://github.com/pytorch/fairseq.git
+  cd fairseq
+  pip install --editable ./ 
+ </pre></code>
+  1. Input files in your fairseq folder
+  2. Make JIT folder and input your data 
 
    <pre><code>
    #BPE segments for training
