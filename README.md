@@ -36,8 +36,9 @@ final-project-level3-nlp-18 created by GitHub Classroom
     bash generate_koje.sh
     bash generate_jeko.sh
     
-   #Post-process : 만들어진 문장 텍스트에 Detokenized된 문장만을 평문으로 바꿔준 텍스트 파일을 만들어준다
-   #Back-translation : 만들어진 문장 텍스트에 Detokenized된 문장만을 평문으로 바꿔준 텍스트 파일을 ko->je라면 je.train파일에 붙여주고, je->ko라면 ko.train파일에 붙여준다
-
+   #post-process : 만들어진 문장 텍스트에 Detokenized된 문장만을 평문으로 바꿔준 텍스트 파일을 만들어준다
+   python post-process.py --vocab_size 4000 --lang1 ko --lang2 je
+   #back-translation : 만들어진 문장 텍스트에 Detokenized된 문장만을 평문으로 바꿔준 텍스트 파일을 ko->je라면 je.train파일에 붙여주고, je->ko라면 ko.train파일에 붙여준다
+   python post-process.py --vocab_size 4000 --lang1 ko --lang2 je
     
   </pre></code>
