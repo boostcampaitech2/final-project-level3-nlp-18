@@ -32,11 +32,15 @@ final-project-level3-nlp-18 created by GitHub Classroom
    #Interactive mode (User가 input을 넣으면 output이 나오는 화면)
     bash interactive.sh
     
-   #Generate (Src 문장을 넣으면 모델을 돌려 Tgt 문장에 대한 해석된 문장을 만들어준다)(--result 디렉토리란을 지운다면 텍스트파일은 만들어지지 않지만 score가 계산이 된다)
+   #Generate (Src 문장을 넣으면 모델을 돌려 Tgt 문장에 대한 해석된 문장을 만들어준다)(--result란을 지운다면 텍스트파일은 만들어지지 않지만 score가 계산이 된다)
     bash generate_koje.sh
     bash generate_jeko.sh
     
-   #post-process : 만들어진 문장 텍스트에 Detokenized된 문장만을 평문으로 바꿔준 텍스트 파일을 만들어준다
-   python post-process.py --vocab_size 4000 --lang1 ko --lang2 je
+   #post-process.py : 만들어진 문장 텍스트에 Detokenized된 문장만을 평문으로 바꿔준 텍스트 파일을 만들어준다
+   python post-process.py --vocab_size 4000 --lang1 external --lang2 je
+
+   #backtranslation.py : 만들어진 문장 텍스트를 je.train을 열어 끝에다 기록한다.
+   python backtranslation.py --vocab_size 4000 --lang1 external --lang2 je
    
+   #Whole.py : 입력을 넣으면 학습한 모델과 data를 이용해 출력하는 파일
   </pre></code>
