@@ -29,9 +29,11 @@ final-project-level3-nlp-18 created by GitHub Classroom
     bash train_koje.sh
     bash train_jeko.sh
     
-   #Interactive mode
-    bash eval.sh
+   #Interactive mode (User가 input을 넣으면 output이 나오는 화면)
+    bash interactive.sh
     
-   #Score 
-    bash score.sh
+   #Generate (Src 문장을 넣으면 모델을 돌려 Tgt 문장으로 바꿔준다)
+    bash generate_koje.sh
+    bash generate_jeko.sh
+    
   </pre></code>
