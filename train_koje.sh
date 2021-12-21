@@ -10,9 +10,10 @@ fairseq-train data/4k/${lang1}-${lang2}-bin \
     --lr-scheduler inverse_sqrt       \
     --weight-decay 0.0001 \
     --criterion label_smoothed_cross_entropy       \
-    --max-epoch 100 \
+    --max-epoch 1 \
     --warmup-updates 4000 \
     --warmup-init-lr '1e-07'    \
     --adam-betas '(0.9, 0.98)'       \
     --save-dir train/4k/${lang1}-${lang2}/ckpt  \
-    --save-interval 10
+    --save-interval 1
+
