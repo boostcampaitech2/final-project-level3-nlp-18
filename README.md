@@ -16,7 +16,7 @@ final-project-level3-nlp-18 created by GitHub Classroom
   3. pip install --editable ./  
   4. Input files 
   5. Make JIT folder and input your data
-  6. Download prepro.py and bpe_segment.py form https://github.com/kakaobrain/jejueo/tree/master/translation
+
    <pre><code>
    #BPE segments for training
     python bpe_segment.py --jit jit --vocab_size 4000
