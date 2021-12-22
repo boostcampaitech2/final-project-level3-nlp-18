@@ -39,6 +39,7 @@ if __name__ == "__main__":
                         help="JIT directory path")
     parser.add_argument('--vocab_size', type=int, default=8000,
                         help='Total number of BPE tokens')
+    parser.add_argument('--external', type=str, default= False, help = 'Use of external data for BackTranslation')
     hp = parser.parse_args()
 
     # train/valid/test
@@ -49,11 +50,7 @@ if __name__ == "__main__":
     dev_ko = codecs.open(f"{hp.jit}/ko.dev", 'r', 'utf8').read().splitlines()
     test_ko = codecs.open(f"{hp.jit}/ko.test", 'r', 'utf8').read().splitlines()
 
-    #extrnal data
-    train_ko_ex = codecs.open(f"{hp.jit}/external.train", 'r', 'utf8').read().splitlines()
-    dev_ko_ex = codecs.open(f"{hp.jit}/external.dev", 'r', 'utf8').read().splitlines()
-    test_ko_ex = codecs.open(f"{hp.jit}/external.test", 'r', 'utf8').read().splitlines()
-           
+
     # bpe train
     dir = 'data/{}k/bpe'.format(str(hp.vocab_size)[:-3])
     os.makedirs(dir, exist_ok=True)
@@ -71,6 +68,12 @@ if __name__ == "__main__":
     apply_bpe(sp, train_ko, f'{dir}/train.ko')
     apply_bpe(sp, dev_ko, f'{dir}/dev.ko')
     apply_bpe(sp, test_ko, f'{dir}/test.ko')
-    apply_bpe(sp, train_ko_ex, f'{dir}/train.external')
-    apply_bpe(sp, dev_ko_ex, f'{dir}/dev.external')
-    apply_bpe(sp, test_ko_ex, f'{dir}/test.external')
+    
+    #external data
+    if hp.external == True : 
+        train_ko_ex = codecs.open(f"{hp.jit}/external.train", 'r', 'utf8').read().splitlines()
+        dev_ko_ex = codecs.open(f"{hp.jit}/external.dev", 'r', 'utf8').read().splitlines()
+        test_ko_ex = codecs.open(f"{hp.jit}/external.test", 'r', 'utf8').read().splitlines()           
+        apply_bpe(sp, train_ko_ex, f'{dir}/train.external')
+        apply_bpe(sp, dev_ko_ex, f'{dir}/dev.external')
+        apply_bpe(sp, test_ko_ex, f'{dir}/test.external')
