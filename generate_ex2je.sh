@@ -1,8 +1,6 @@
-export lang1='external'
-export lang2='je'
 
-fairseq-generate data/4k/${lang1}-${lang2}-bin \
+fairseq-interactive data/4k/ko-je-bin  \
+  --input jit/external.train \
   --path train/4k/ko-je/ckpt/checkpoint_best.pt \
-  --batch-size 200 \
-  --remove-bpe \
-  --results-path result/4k/${lang1}-${lang2}-bin --beam 5
+  --buffer-size 16 \
+  --results-path result/4k/external-je-bin --beam 5 
