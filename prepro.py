@@ -19,7 +19,7 @@ def prepro(src, tgt, vocab_size):
                     --destdir {destdir}"
     else : 
         prepro = f"fairseq-preprocess \
-                    --source-lang external \
+                    --source-lang {src} \
                     --target-lang {tgt} \
                     --trainpref {trainpref} \
                     --validpref {dir}/bpe/dev \
@@ -27,8 +27,9 @@ def prepro(src, tgt, vocab_size):
                     --srcdict {dir}/bpe/bpe.dict \
                     --tgtdict {dir}/bpe/bpe.dict \
                     --workers 8 \
-                    --destdir {destdir}"
-
+                    --destdir {destdir}"      
+                                     
+                                     
     os.system(prepro)
 
 
