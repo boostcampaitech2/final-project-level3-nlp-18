@@ -1,7 +1,6 @@
 #-*- coding: utf-8 -*-
 '''
 Train bpe model and bpe-segment train/valid/test datasets.
-
 e.g.,
 python bpe_segment.py --jit /data/private/jejueo/jit/jit --vocab_size 8000
 '''
@@ -50,6 +49,9 @@ if __name__ == "__main__":
     dev_ko = codecs.open(f"{hp.jit}/ko.dev", 'r', 'utf8').read().splitlines()
     test_ko = codecs.open(f"{hp.jit}/ko.test", 'r', 'utf8').read().splitlines()
 
+    #extrnal data
+    train_ko_ex = codecs.open(f"{hp.jit}/external.train", 'r', 'utf8').read().splitlines()
+           
     # bpe train
     dir = 'data/{}k/bpe'.format(str(hp.vocab_size)[:-3])
     os.makedirs(dir, exist_ok=True)
@@ -67,3 +69,4 @@ if __name__ == "__main__":
     apply_bpe(sp, train_ko, f'{dir}/train.ko')
     apply_bpe(sp, dev_ko, f'{dir}/dev.ko')
     apply_bpe(sp, test_ko, f'{dir}/test.ko')
+    apply_bpe(sp, train_ko_ex, f'{dir}/train.external')
