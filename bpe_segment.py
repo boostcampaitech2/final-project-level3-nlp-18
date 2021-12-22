@@ -39,7 +39,7 @@ if __name__ == "__main__":
                         help="JIT directory path")
     parser.add_argument('--vocab_size', type=int, default=8000,
                         help='Total number of BPE tokens')
-    parser.add_argument('--external', type=str, default= False, help = 'Use of external data for BackTranslation')
+    parser.add_argument('--external', type=str, help = 'Use of external data for BackTranslation')
     hp = parser.parse_args()
 
     # train/valid/test
@@ -70,10 +70,23 @@ if __name__ == "__main__":
     apply_bpe(sp, test_ko, f'{dir}/test.ko')
     
     #external data
-    if hp.external == True : 
+    if hp.external == 'on' : 
         train_ko_ex = codecs.open(f"{hp.jit}/external.train", 'r', 'utf8').read().splitlines()
         dev_ko_ex = codecs.open(f"{hp.jit}/external.dev", 'r', 'utf8').read().splitlines()
-        test_ko_ex = codecs.open(f"{hp.jit}/external.test", 'r', 'utf8').read().splitlines()           
+        test_ko_ex = codecs.open(f"{hp.jit}/external.test", 'r', 'utf8').read().splitlines()
+        
+        dir = 'data/{}k/bpe_ex'.format(str(hp.vocab_size)[:-3])
+        os.makedirs(dir, exist_ok=True)
+        
+        #train bpe by using external data
+        with codecs.open(f"{dir}/bpe.train", 'w', 'utf8') as fout:
+            fout.write("\n".join(train_je + train_ko_ex))
+        train_bpe(f'{dir}/bpe.train', hp.vocab_size)  
+        sp = spm.SentencePieceProcessor()
+        sp.Load(f'{dir}/bpe.model')
+        apply_bpe(sp, train_je, f'{dir}/train.je')
+        apply_bpe(sp, dev_je, f'{dir}/dev.je')
+        apply_bpe(sp, test_je, f'{dir}/test.je')         
         apply_bpe(sp, train_ko_ex, f'{dir}/train.external')
         apply_bpe(sp, dev_ko_ex, f'{dir}/dev.external')
         apply_bpe(sp, test_ko_ex, f'{dir}/test.external')
