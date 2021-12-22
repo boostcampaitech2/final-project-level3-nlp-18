@@ -50,7 +50,6 @@ final-project-level3-nlp-18 created by GitHub Classroom
       python prepro.py --src exteranl --tgt je --vocab_size 4000
       bash train_ex2je.sh
     4. 1~3의 모든 데이터를 이용해 학습
-      python backtranslation.py
     
 
   </pre></code>
