@@ -23,8 +23,9 @@ final-project-level3-nlp-18 created by GitHub Classroom
     python bpe_segment.py --jit jit --vocab_size 4000
     
    #Fairseq prepro
-    python prepro.py --src ko --tgt je --vocab_size 4000
     python prepro.py --src je --tgt ko --vocab_size 4000
+    python prepro.py --src ko --tgt je --vocab_size 4000
+    
     
    #Training
     bash train_koje.sh
@@ -36,12 +37,20 @@ final-project-level3-nlp-18 created by GitHub Classroom
    #Generate (Src 문장을 넣으면 모델을 돌려 Tgt 문장에 대한 해석된 문장을 만들어준다)(--result란을 지운다면 텍스트파일은 만들어지지 않지만 score가 계산이 된다)
     bash generate_koje.sh
     bash generate_jeko.sh
-    
-   #post-process.py : 만들어진 문장 텍스트에 Detokenized된 문장만을 평문으로 바꿔준 텍스트 파일을 만들어준다
-   python post-process.py --vocab_size 4000 --lang1 external --lang2 je
-
-   #backtranslation.py : 만들어진 문장 텍스트를 je.train을 열어 끝에다 기록한다.
-   python backtranslation.py --vocab_size 4000 --lang1 external --lang2 je
    
-   #Whole.py : 입력을 넣으면 학습한 모델과 data를 이용해 출력하는 파일
+   #Backtranslation
+    1. je->ko 베이스라인 모델 학습
+      python bpe_segment.py --jit jit --vocab_size 4000
+      python prepro.py --src je --tgt ko --vocab_size 4000
+      bash train_jeko.sh
+    2. ko->je backtranslate용 모델 학습
+      python prerpor.py --src ko --tgt je --vocab_size 4000
+      bash train_koje.sh
+    3. 2번 모델을 사용해 단일 표준어 데이터에서 제주어를 생성를 만들어 한쌍의 데이터 제작
+      python prepro.py --src exteranl --tgt je --vocab_size 4000
+      bash train_ex2je.sh
+    4. 1~3의 모든 데이터를 이용해 학습
+      python backtranslation.py
+    
+
   </pre></code>
