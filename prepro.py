@@ -3,33 +3,31 @@ import argparse
 
 def prepro(src, tgt, vocab_size):
     dir = "data/{}k".format(str(vocab_size)[:-3])
-    trainpref = f"{dir}/bpe/train"
     destdir = f"{dir}/{src}-{tgt}-bin"
-
-    if src != 'external' :
+    if src == 'external' : 
+        trainpref = f'{dir}/bpe_ex/train'
         prepro = f"fairseq-preprocess \
                     --source-lang {src} \
                     --target-lang {tgt} \
                     --trainpref {trainpref} \
-                    --validpref {dir}/bpe/dev \
-                    --testpref {dir}/bpe/test \
-                    --srcdict {dir}/bpe/bpe.dict \
+                    --validpref {dir}/bpe_ex/dev \
+                    --testpref {dir}/bpe_ex/test \
+                    --srcdict {dir}/bpe_ex/bpe.dict \
                     --tgtdict {dir}/bpe/bpe.dict \
                     --workers 8 \
                     --destdir {destdir}"
-    else : 
-        prepro = f"fairseq-preprocess \
-                    --source-lang {src} \
-                    --target-lang {tgt} \
-                    --trainpref {trainpref} \
-                    --validpref {dir}/bpe/dev \
-                    --testpref {dir}/bpe/test \
-                    --srcdict {dir}/bpe/bpe.dict \
-                    --tgtdict {dir}/bpe/bpe.dict \
-                    --workers 8 \
-                    --destdir {destdir}"      
-                                     
-                                     
+    else :       
+            trainpref = f"{dir}/bpe/train"
+            prepro = f"fairseq-preprocess \
+                --source-lang {src} \
+                --target-lang {tgt} \
+                --trainpref {trainpref} \
+                --validpref {dir}/bpe/dev \
+                --testpref {dir}/bpe/test \
+                --srcdict {dir}/bpe/bpe.dict \
+                --tgtdict {dir}/bpe/bpe.dict \
+                --workers 8 \
+                --destdir {destdir}"                                                    
     os.system(prepro)
 
 
