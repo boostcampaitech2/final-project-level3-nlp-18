@@ -51,6 +51,8 @@ if __name__ == "__main__":
 
     #extrnal data
     train_ko_ex = codecs.open(f"{hp.jit}/external.train", 'r', 'utf8').read().splitlines()
+    dev_ko_ex = codecs.open(f"{hp.jit}/external.dev", 'r', 'utf8').read().splitlines()
+    test_ko_ex = codecs.open(f"{hp.jit}/external.test", 'r', 'utf8').read().splitlines()
            
     # bpe train
     dir = 'data/{}k/bpe'.format(str(hp.vocab_size)[:-3])
@@ -70,3 +72,5 @@ if __name__ == "__main__":
     apply_bpe(sp, dev_ko, f'{dir}/dev.ko')
     apply_bpe(sp, test_ko, f'{dir}/test.ko')
     apply_bpe(sp, train_ko_ex, f'{dir}/train.external')
+    apply_bpe(sp, dev_ko_ex, f'{dir}/dev.external')
+    apply_bpe(sp, test_ko_ex, f'{dir}/test.external')
