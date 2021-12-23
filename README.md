@@ -1,6 +1,16 @@
 # Final-project-level3-nlp-18
   final-project-level3-nlp-18 created by GitHub Classroom
 
+<pre><code>
+├── app.py
+├── requirements.txt
+├── static
+├── templates
+│                     ----- ABOVE   Running Flask
+│                     ----- BELOW   MAIN ARCHITECTURE
+├── README.md
+└── translator
+</pre><code>
 
 ## How to use fairseq translation model
 
