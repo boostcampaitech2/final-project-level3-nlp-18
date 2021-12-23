@@ -13,7 +13,7 @@ def prepro(src, tgt, vocab_size):
                     --validpref {dir}/bpe_ex/dev \
                     --testpref {dir}/bpe_ex/test \
                     --srcdict {dir}/bpe_ex/bpe.dict \
-                    --tgtdict {dir}/bpe/bpe.dict \
+                    --tgtdict {dir}/bpe_ex/bpe.dict \
                     --workers 8 \
                     --destdir {destdir}"
     else :       
