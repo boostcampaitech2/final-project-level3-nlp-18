@@ -20,7 +20,7 @@
 
    <pre><code>
    #BPE segments for training
-    python bpe_segment.py --jit jit --vocab_size 4000
+    python bpe_segment.py --jit jit --vocab_size 4000 --external 
     
    #Fairseq prepro
     python prepro.py --src je --tgt ko --vocab_size 4000
