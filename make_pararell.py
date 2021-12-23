@@ -16,8 +16,14 @@ if __name__ == '__main__' :
                 list.append(line_list[2:])
     add_generated_sentence(list)
     
-    #TODO ko_train에 붙이는 파일 만들기 
+    train_ko_ex = codecs.open("jit/external.train", 'r', 'utf8').read().splitlines()
+    dev_ko_ex = codecs.open("jit/external.dev", 'r', 'utf8').read().splitlines()
+    test_ko_ex = codecs.open("jit/external.test", 'r', 'utf8').read().splitlines()
+    train_ko = codecs.open("jit/ko.train", 'r', 'utf8').read().splitlines()
     
+    with codecs.open("jit/ko.train", 'a', 'utf8') as fout:
+        fout.write("\n".join(train_ko_ex + dev_ko_ex + test_ko_ex))
+            
 
             
             
