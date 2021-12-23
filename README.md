@@ -50,6 +50,7 @@
       python prepro.py --src exteranl --tgt je --vocab_size 4000
       bash generate_ex2je.sh
     4. 1~3의 모든 데이터를 이용해 학습
+      python make_pararell.py
     
-
+  
   </pre></code>
