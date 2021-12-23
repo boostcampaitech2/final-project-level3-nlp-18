@@ -48,9 +48,10 @@
       bash train_koje.sh
     3. 2번 모델을 사용해 단일 표준어 데이터에서 제주어를 생성를 만들어 한쌍의 데이터 제작
       python prepro.py --src exteranl --tgt je --vocab_size 4000
-      bash generate_ex2je.sh
-    4. 1~3의 모든 데이터를 이용해 학습
+      bash generate_ex2je.sh\
       python make_pararell.py
+    4. 1~3의 모든 데이터를 이용해 학습
+      
     
   
   </pre></code>
