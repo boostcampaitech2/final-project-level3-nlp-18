@@ -10,7 +10,7 @@
 │                     ----- BELOW   MAIN ARCHITECTURE
 ├── README.md
 └── translator
-</pre><code>
+</pre></code>
 
 ## How to use fairseq translation model
 
