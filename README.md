@@ -47,7 +47,11 @@
         python prepro.py --src external --tgt je --vocab_size 4000
 
     4. Generate file 
-        bash generate_ex2je.sh (with best_model made by ko-je training)
+        python interactive_v2.py data/4k/external-je-bin  \
+        --input jit/external.train \
+        --path train/4k/ko-je/ckpt/epoch_10_ko-je_checkpoint_best.pt \
+        --buffer-size 1 \
+        --results-path result/4k/external-je-bin --beam 5 > backtranslation_output.txt
       
     5. 4에서 만들어진 제주어를 je.train에 붙이고, 외부데이터를 ko.train에 붙입니다
         python make_pararell.py
