@@ -38,17 +38,21 @@
     bash generate_jeko.sh
    
    ##Backtranslation
-    1. 
-      python bpe_segment.py --jit jit --vocab_size 4000 --external 'on'
-      python prepro.py --src external --tgt je --vocab_size 4000
+    1. Put external data in your directory(fairseq) 
+    2. Split external data 
+        python practice.py
+        
+    3. Make dictionary and preprocess  
+        python bpe_segment.py --jit jit --vocab_size 4000 --external 'on'
+        python prepro.py --src external --tgt je --vocab_size 4000
 
-    2. Generate file 
-      bash generate_ex2je.sh
+    4. Generate file 
+        bash generate_ex2je.sh
       
-    3. 2번 모델을 사용해 단일 표준어 데이터에서 제주어를 생성를 만들어 한쌍의 데이터 제작
-      python make_pararell.py
+    5. 2번 모델을 사용해 단일 표준어 데이터에서 제주어를 생성를 만들어 한쌍의 데이터 제작
+        python make_pararell.py
       
-    4. 1~3의 모든 데이터를 이용해 학습
+    6. 1~3의 모든 데이터를 이용해 학습
       
     
   
