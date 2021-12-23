@@ -33,7 +33,7 @@
    #Interactive mode (외부 문장에 대한 생성과 입출력에 쓰인다)
     bash interactive.sh
     
-   #Score (Src 문장을 넣으면 모델을 돌려 Tgt 문장에 대한 해석된 문장의 점수를 계산한다)
+   #Score (src 문장을 넣으면 모델을 돌려 tgt 문장에 대한 해석된 문장의 점수를 계산한다)
     bash generate_koje.sh
     bash generate_jeko.sh
    
@@ -49,7 +49,7 @@
     4. Generate file 
         bash generate_ex2je.sh (with best_model made by ko-je training)
       
-    5. 2번 모델을 사용해 단일 표준어 데이터에서 제주어를 생성를 만들어 한쌍의 데이터 제작
+    5. 4에서 만들어진 제주어를 je.train에 붙이고, 외부데이터를 ko.train에 붙입니다
         python make_pararell.py
       
     6. 1~3의 모든 데이터를 이용해 학습
