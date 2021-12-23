@@ -20,22 +20,21 @@
         <div>
           <h3 class="float-md-start mb-0"></h3>
           <nav class="nav nav-masthead justify-content-center float-md-end">
-            <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">
+            <a class="nav-link" href="{{ url_for('index') }}">
               KR &rarr; JEJU</a>
-            <a class="nav-link" href="{{ url_for('second') }}">JEJU &rarr; KR</a>
+            <a class="nav-link active" aria-current="page" href="{{ url_for('second') }}">JEJU &rarr; KR</a>
           </nav>
         </div>
       </header>
     
       <main class="px-3">
         <span>
-          <img src="{{ url_for('static', filename='citrus.png') }}" style="width: 50px;">
+          <img src="{{ url_for('static', filename='camellia.png') }}" style="width: 50px;">
           <h1>Translate anything.</h1>
         </span>
         <div class="wrapper">
           {% block content %}{% endblock %}
         </div>
-
 
         <p class="lead">
           <form method="POST">

@@ -1,19 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Frank+Ruhl+Libre&family=Noto+Sans+KR&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Noto+Sans+KR&display=swap');
 
 body {font-family: 'Alfa Slab One';}
 
-h1 {margin: 5% 0;}
+h1 {display: inline; padding: 0 0 0 3%!important; margin: 15% 0!important;}
 .px-3 {padding: 3%; margin: 2% 0;}
-.wrapper {text-align: left; padding: 3%; min-height: 100%}
+.wrapper {text-align: left; padding: 3%; min-height: 100%; margin: 15% 0;}
 .eng {color: white;}
 .original, .translated {font-family: 'Noto Sans KR', sans-serif; font-size: 1.2em; line-height: 140%; word-break: keep-all;}
 .original {color: white;}
-.translated {color: lightsalmon;} 
+.translated {color: lightsalmon;}
 
-textarea {margin: 5% 0; width: 98%; border: 0; box-shadow: 0 0 0 1px #000 inset; padding: 1%; font-size: 1em; font-family: 'Noto Sans KR';}
+textarea {margin: 5% 0; width: 98%; border: 0; padding: 1%; font-size: 1em; font-family: 'Noto Sans KR';}
 .textarea {margin: 0;}
 form {margin: 0;}
-button {margin-top: 5%;}
+button {margin-top: 10%;}
 
 @media screen and (max-width: 480px) {
     body {background-color: #eee;}
