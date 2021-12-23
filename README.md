@@ -30,9 +30,6 @@
     bash train_koje.sh
     bash train_jeko.sh
     
-   #Interactive mode (외부 문장에 대한 생성과 입출력에 쓰인다)
-    bash interactive.sh
-    
    #Score (src 문장을 넣으면 모델을 돌려 tgt 문장에 대한 해석된 문장의 점수를 계산한다)
     bash generate_koje.sh
     bash generate_jeko.sh
