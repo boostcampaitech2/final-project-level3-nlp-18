@@ -20,12 +20,11 @@
 
    <pre><code>
    #BPE segments for training
-    python bpe_segment.py --jit jit --vocab_size 4000 --external 
+    python bpe_segment.py --jit jit --vocab_size 4000 --external 'off' 
     
    #Fairseq prepro
     python prepro.py --src je --tgt ko --vocab_size 4000
-    python prepro.py --src ko --tgt je --vocab_size 4000
-    
+    python prepro.py --src ko --tgt je --vocab_size 4000   
     
    #Training
     bash train_koje.sh
@@ -38,18 +37,17 @@
     bash generate_koje.sh
     bash generate_jeko.sh
    
-   #Backtranslation
-    1. je->ko 베이스라인 모델 학습
-      python bpe_segment.py --jit jit --vocab_size 4000
-      python prepro.py --src je --tgt ko --vocab_size 4000
-      bash train_jeko.sh
-    2. ko->je backtranslate용 모델 학습
-      python prerpor.py --src ko --tgt je --vocab_size 4000
-      bash train_koje.sh
+   ##Backtranslation
+    1. 
+      python bpe_segment.py --jit jit --vocab_size 4000 --external 'on'
+      python prepro.py --src external --tgt je --vocab_size 4000
+
+    2. Generate file 
+      bash generate_ex2je.sh
+      
     3. 2번 모델을 사용해 단일 표준어 데이터에서 제주어를 생성를 만들어 한쌍의 데이터 제작
-      python prepro.py --src exteranl --tgt je --vocab_size 4000
-      bash generate_ex2je.sh\
       python make_pararell.py
+      
     4. 1~3의 모든 데이터를 이용해 학습
       
     
