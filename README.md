@@ -47,7 +47,7 @@
         python prepro.py --src external --tgt je --vocab_size 4000
 
     4. Generate file 
-        bash generate_ex2je.sh
+        bash generate_ex2je.sh (with best_model made by ko-je training)
       
     5. 2번 모델을 사용해 단일 표준어 데이터에서 제주어를 생성를 만들어 한쌍의 데이터 제작
         python make_pararell.py
