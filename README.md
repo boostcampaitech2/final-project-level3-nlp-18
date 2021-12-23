@@ -49,7 +49,7 @@
     4. Generate file 
         python interactive_v2.py data/4k/external-je-bin  \
         --input jit/external.train \
-        --path train/4k/ko-je/ckpt/epoch_10_ko-je_checkpoint_best.pt \
+        --path train/4k/ko-je/ckpt/checkpoint_best.pt \
         --buffer-size 1 \
         --results-path result/4k/external-je-bin --beam 5 > backtranslation_output.txt
       
