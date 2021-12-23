@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <span class="eng">YOU ENTERED</span><br>
+    <div class="original">
+        {{ original_text }}<br><br>
+    </div>
+    
+    <span class="eng">TRANSLATED</span><br>
+    <div class="translated">
+        {{ translated_text }}
+    </div>
+{% endblock %}

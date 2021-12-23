@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="{{ url_for('static', filename='bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='cover.css') }}" rel="stylesheet">
+
+    <title>#18</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#f2a481">
+    <script>
+        (function(d) {
+          var config = {
+            kitId: 'pig3fzu',
+            scriptTimeout: 3000,
+            async: true
+          },
+          h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Frank+Ruhl+Libre&family=Noto+Sans+KR&family=Satisfy&display=swap');
+
+        body {font-family: 'Alfa Slab One';}
+        
+        h1 {margin: 5% 0;}
+        .px-3 {padding: 3%; margin: 2% 0;}
+        .wrapper {text-align: left; padding: 3%; min-height: 100%}
+        .eng {color: white;}
+        .original, .translated {font-family: 'Noto Sans KR', sans-serif; font-size: 1.2em; line-height: 140%; word-break: keep-all;}
+        .original {color: white;}
+        .translated {color: lightsalmon;} 
+
+        textarea {margin: 5% 0; width: 98%; border: 0; box-shadow: 0 0 0 1px #000 inset; padding: 1%; font-size: 1em; font-family: 'Noto Sans KR';}
+        .textarea {margin: 0;}
+        form {margin: 0;}
+        button {margin-top: 5%;}
+
+        @media screen and (max-width: 480px) {
+            body {background-color: #eee;}
+        }
+    </style>
+</head>
+
+<body class="d-flex h-100 text-center text-white bg-dark">
+    
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="mb-auto">
+        <div>
+          <h3 class="float-md-start mb-0"></h3>
+          <nav class="nav nav-masthead justify-content-center float-md-end">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">TRANSLATOR</a>
+            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="#">Contact</a>
+          </nav>
+        </div>
+      </header>
+    
+      <main class="px-3">
+        <h1>Translate anything.</h1>
+
+        <div class="wrapper">
+          {% block content %}{% endblock %}
+        </div>
+
+
+        <p class="lead">
+          <form method="POST">
+          <div><textarea name="text" rows="5"></textarea></div>
+          <button type="submit" class="btn btn-lg btn-secondary fw-bold border-white bg-white">TRANSLATE</button>
+          </form>
+        </p>
+      </main>
+    
+      <footer class="mt-auto text-white-50">
+        Boostcamp/2&nbsp;
+        NLP/18&nbsp;
+        <a href="https://github.com/boostcampaitech2/final-project-level3-nlp-18/tree/main" class="text-white" target="_blank">M/A/F/I/A</a>
+      </footer>
+    </div>
+</body>
+
+
+
+
+
+
+
+
+
+
