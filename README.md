@@ -1,7 +1,8 @@
 # Final-project-level3-nlp-18
   final-project-level3-nlp-18 created by GitHub Classroom
 
-<pre><code>
+### Structure
+```
 ├── app.py
 ├── requirements.txt
 ├── static
@@ -10,7 +11,7 @@
 │                     ----- BELOW   MAIN ARCHITECTURE
 ├── README.md
 └── translator
-</pre></code>
+```
 
 ## How to use fairseq translation model
 
