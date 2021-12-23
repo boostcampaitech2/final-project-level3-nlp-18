@@ -14,6 +14,6 @@ if __name__ == '__main__' :
         for line in f : 
             line_list = line.split()
 
-            if line_list[0][0] == 'D' : 
+            if line_list[0][0] == '제' : 
                 list.append(line_list[2:])
     add_generated_sentence(list)
