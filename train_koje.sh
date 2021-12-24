@@ -1,7 +1,7 @@
 export lang1="ko"
 export lang2="je"
 fairseq-train data/4k/${lang1}-${lang2}-bin \
-    --arch transformer_align       \
+    --fp16 --arch transformer_align       \
     --optimizer adam \
     --lr 0.0005 \
     --label-smoothing 0.1 \
