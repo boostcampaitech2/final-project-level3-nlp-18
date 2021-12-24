@@ -3,7 +3,6 @@ import codecs
 import os
 import sentencepiece as spm
 
-from jamo import h2j # syllable to jamo (letter)
 import argparse
 
 def train_bpe(fpath, vocab_size):
