@@ -316,15 +316,10 @@ def main(cfg: FairseqConfig):
     return detok_input
 
 
-def cli_main(raw_text=None):
+def cli_main():
     parser = options.get_interactive_generation_parser()
     args = options.parse_args_and_arch(parser)
-    args.input = raw_text
-    args.data = 'translator/data/4k/ko-je-bin'
-    args.path = 'translator/train/4k/ko-je/ckpt/checkpoint_best.pt'
-    args.beam = 5
-    result = distributed_utils.call_main(convert_namespace_to_omegaconf(args), main)
-    return result
+    distributed_utils.call_main(convert_namespace_to_omegaconf(args), main)
 
 
 if __name__ == "__main__":
