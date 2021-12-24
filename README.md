@@ -5,10 +5,10 @@
 ## How to use fairseq translation model
 
 ### Requirements 
-  python >= 3.6  
-  NumPy >= 1.11.1    
-  Sentencepiece   
-  tqdm   
+    python >= 3.6  
+    NumPy >= 1.11.1    
+    Sentencepiece   
+    tqdm   
 ### Practice
   <pre><code>
   git clone https://github.com/pytorch/fairseq.git
